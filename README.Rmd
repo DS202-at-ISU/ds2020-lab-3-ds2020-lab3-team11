@@ -41,12 +41,20 @@ Similarly, deal with the returns of characters.
 Based on these datasets calculate the average number of deaths an Avenger suffers. 
 
 ```{r}
-
-
-
-
-
-
+deaths <- av %>% 
+  pivot_longer(
+    starts_with("Death"),
+    names_to = "Time",
+    values_to = "Died"
+  ) %>% mutate(
+    Time = parse_number(Time)
+  ) %>% pivot_longer(
+    starts_with("Return"),
+    names_to = 'Time_Returned',
+    values_to = 'Returned'
+  ) %>% mutate(
+    Time_Returned = parse_number(Time_Returned)
+  ) %>% mutate(Time = parse_number(Time))
 ```
 ## Individually
 
