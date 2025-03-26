@@ -78,7 +78,7 @@ Each team member picks one of the statements in the FiveThirtyEight [analysis](h
 
 ### FiveThirtyEight Statement
 
-Akshat - "There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife, but only a 50 percent chance they recovered from a second or third death"
+Akshat - "There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife"
 
 ### Include the code
 
@@ -92,17 +92,17 @@ avenger_deaths <- deaths %>%
   ungroup()
 
 return_rates <- avenger_deaths %>%
-  filter(death_number <= 3) %>%
+  filter(death_number == 1) %>%
   group_by(death_number) %>%
   summarise(return_rate = mean(Returned == "YES", na.rm = TRUE))
 
-print(return_rates)
+return_rates
 ```
 
 ### Include your answer
 
 Include at least one sentence discussing the result of your fact-checking endeavor.
 
-
+Akshat - The statement that "There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife" is approximately correct as there is a 70% chance of return after the first death and 2/3 is approximtely 66.67%.
 
 Upload your changes to the repository. Discuss and refine answers as a team.
