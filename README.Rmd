@@ -43,7 +43,17 @@ deaths <- av %>%
     starts_with("Death"),
     names_to = "Time",
     values_to = "Died"
+  ) %>% mutate(
+    Time = parse_number(Time)
+  ) %>% pivot_longer(
+    starts_with("Return"),
+    names_to = 'Time_Returned',
+    values_to = 'Returned'
+  ) %>% mutate(
+    Time_Returned = parse_number(Time_Returned)
   )
+
+
 
 ```
 ## Individually
