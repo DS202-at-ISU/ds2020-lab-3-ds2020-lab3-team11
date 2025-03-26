@@ -79,6 +79,7 @@ Akshat - "There’s a 2-in-3 chance that a member of the Avengers returned from 
 
 Ryan - "Out of 173 listed Avengers, my analysis found that 69 had died at least one time after they joined the team.
 
+Jacob - "I counted 89 total deaths and on 57 occasions the individual made a comeback."
 
 ### Include the code
 
@@ -108,6 +109,34 @@ av %>%
   summarise(total_died = n())
 ```
 
+### Jacob's Code
+```{r}
+deaths_count <- av %>% 
+  pivot_longer(
+    starts_with("Death"),
+    names_to = "Time",
+    values_to = "Died"
+  ) %>% mutate(
+    Time = parse_number(Time)
+  )
+returns <- av %>% 
+    pivot_longer(
+    starts_with("Return"),
+    names_to = 'Time_Returned',
+    values_to = 'Returned'
+  ) %>% mutate(
+    Time_Returned = parse_number(Time_Returned)
+  )
+
+deaths_count %>%
+  filter(Died == "YES") %>%
+  summarise(total_died = n())
+
+returns %>%
+  filter(Returned == "YES") %>%
+  summarise(total_returned = n())
+```
+
 ### Include your answer
 
 Include at least one sentence discussing the result of your fact-checking endeavor.
@@ -115,8 +144,8 @@ Include at least one sentence discussing the result of your fact-checking endeav
 
 Akshat - The statement that "There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife" is approximately correct as there is a 70% chance of return after the first death and 2/3 is approximtely 66.67%.
 
-
 Ryan's Result: My findings match the statement on the FiveThirtyEight website, as I also found that 69 avengers died at least one time after they joined the team.
 
+Jacob - My findings match the statement from the article that there's 89 total deaths and 57 instances of an individual returning.
 
 Upload your changes to the repository. Discuss and refine answers as a team.
