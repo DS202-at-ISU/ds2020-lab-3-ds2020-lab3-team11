@@ -47,7 +47,9 @@ deaths <- av %>%
     starts_with("Death"),
     names_to = "Time",
     values_to = "Died"
-  )
+  ) %>% mutate(Time = parse_number(Time))
+
+deaths
 
 ```
 ## Individually
