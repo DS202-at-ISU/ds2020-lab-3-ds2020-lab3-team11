@@ -54,7 +54,10 @@ deaths <- av %>%
     values_to = 'Returned'
   ) %>% mutate(
     Time_Returned = parse_number(Time_Returned)
-  ) %>% mutate(Time = parse_number(Time))
+  )
+
+deaths
+
 ```
 ## Individually
 
