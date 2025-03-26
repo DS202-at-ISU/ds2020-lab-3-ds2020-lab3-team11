@@ -56,7 +56,7 @@ Each team member picks one of the statements in the FiveThirtyEight [analysis](h
 
 ### FiveThirtyEight Statement
 
-> Quote the statement you are planning to fact-check.
+Akshat - "There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife, but only a 50 percent chance they recovered from a second or third death"
 
 ### Include the code
 
