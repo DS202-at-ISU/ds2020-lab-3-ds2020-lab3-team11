@@ -56,6 +56,17 @@ deaths <- av %>%
     Time_Returned = parse_number(Time_Returned)
   )
 ```
+
+```{r}
+average_deaths <- deaths %>%
+  group_by(Name.Alias) %>% 
+  summarise(death_count = sum(Died == "YES", na.rm = TRUE)) %>%
+  summarise(avg_deaths = mean(death_count, na.rm = TRUE))
+
+print(average_deaths)
+```
+
+
 ## Individually
 
 For each team member, copy this part of the report. 
