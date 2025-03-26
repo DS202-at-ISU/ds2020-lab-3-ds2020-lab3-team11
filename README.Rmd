@@ -55,9 +55,6 @@ deaths <- av %>%
   ) %>% mutate(
     Time_Returned = parse_number(Time_Returned)
   )
-
-deaths
-
 ```
 
 ```{r}
@@ -80,6 +77,9 @@ Each team member picks one of the statements in the FiveThirtyEight [analysis](h
 
 Akshat - "There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife"
 
+Ryan - "Out of 173 listed Avengers, my analysis found that 69 had died at least one time after they joined the team.
+
+
 ### Include the code
 
 Make sure to include the code to derive the (numeric) fact for the statement
@@ -99,10 +99,24 @@ return_rates <- avenger_deaths %>%
 return_rates
 ```
 
+
+Ryan's Code
+
+``` {r}
+av %>%
+  filter(Death1 == 'YES') %>%
+  summarise(total_died = n())
+```
+
 ### Include your answer
 
 Include at least one sentence discussing the result of your fact-checking endeavor.
 
+
 Akshat - The statement that "There’s a 2-in-3 chance that a member of the Avengers returned from their first stint in the afterlife" is approximately correct as there is a 70% chance of return after the first death and 2/3 is approximtely 66.67%.
+
+
+Ryan's Result: My findings match the statement on the FiveThirtyEight website, as I also found that 69 avengers died at least one time after they joined the team.
+
 
 Upload your changes to the repository. Discuss and refine answers as a team.
