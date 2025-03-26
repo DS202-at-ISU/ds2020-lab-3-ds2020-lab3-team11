@@ -83,9 +83,26 @@ Akshat - "There’s a 2-in-3 chance that a member of the Avengers returned from 
 ### Include the code
 
 Make sure to include the code to derive the (numeric) fact for the statement
+```{r}
+#Akshat's Code
+avenger_deaths <- deaths %>%
+  filter(Died == "YES") %>%
+  group_by(Name.Alias) %>%
+  mutate(death_number = row_number()) %>%
+  ungroup()
+
+return_rates <- avenger_deaths %>%
+  filter(death_number <= 3) %>%
+  group_by(death_number) %>%
+  summarise(return_rate = mean(Returned == "YES", na.rm = TRUE))
+
+print(return_rates)
+```
 
 ### Include your answer
 
 Include at least one sentence discussing the result of your fact-checking endeavor.
+
+
 
 Upload your changes to the repository. Discuss and refine answers as a team.
